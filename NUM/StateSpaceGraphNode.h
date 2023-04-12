@@ -4,6 +4,9 @@
 #include "Move.h"
 #include "StateSpaceGraphEdge.h"
 #include <vector>
+#include <random>
+#include <utility> 
+#include <cstdlib> 
 
 class StateSpaceGraphEdge;
 
@@ -21,6 +24,9 @@ public:
 
     void setMinimaxValue(int);
     void setParentEdge(StateSpaceGraphEdge* edge);
+
+    void applyMove(State& state, const Move& move);
+    std::vector<Move> getLegalMoves(const State& state);
 
     int getHeuristicValue(State& current_state, bool is_maximizing_player);
     int getMinimaxValue(bool is_maximizing_player, State& current_state);
